@@ -12,6 +12,12 @@
 
   <header class="section-header page-margin">
     <h1 class="section-header__left title h2">{{ 'customer.account.title' | t }}</h1>
+
+    <!-- Bold: Loyalty Points - Step 3 -->
+    {% include 'bold-loyalties-customer-transactions' %}
+    <!-- // end bold code -->
+
+
     <div class="section-header__right">
       {% if shop.metafields.charge_rabbit.enabled %}
         <a href='/apps/subscriptions/customers/{{customer.id}}/subscriptions' class='charge-rabbit-manage-link btn uppercase' data-customer-id="{{customer.id}}">

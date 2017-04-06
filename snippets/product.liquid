@@ -100,6 +100,19 @@
 
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
           <meta itemprop="price" content="{{ bold_selected_or_first_available_variant.price | divided_by: 100 }}">
+
+          <!-- Bold: Loyalty Points - Step 4 -->
+          {% if shop.metafields.bold_loyalties.active == 1 %}    
+           <div class="bold-loyalties-redeem-amount">or <span class="bold-placeholder"></span></div>
+          {% endif %}
+          <!-- // end bold code -->
+
+
+          <!-- Bold: Loyalty Points - Step 4.1 -->
+          <div class="bold-loyalties-earn"></div>
+          <!-- // end bold code -->
+
+
           <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
           <form action="{{ form_action }}" method="{{form_method}}" enctype="multipart/form-data" id="{{form_id}}" data-section="{{ section.id }}" class="product-form-{{ section.id }} {{form_class}} shapp_qb_prod">
@@ -156,6 +169,11 @@
                 <input type="number" name="quantity" value="1" min="1" class="QuantityInput">
               </div>
             {% endif %}
+
+
+            <!-- Bold: Loyalty Points - Step 4.2 -->
+            <div class="bold-loyalties-redeem"></div>
+            <!-- // end bold code -->
 
             <div class="add-to-cart__wrapper">
               <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn btn--large btn--full btn--clear uppercase addToCart{% if sold_out %} disabled{% endif %}" {% if sold_out %}disabled="true"{% endif %}>
@@ -262,3 +280,9 @@
 {% if product.template_suffix contains "charge-rabbit" %}
   {% include 'membership-product-callbacks' %}
 {% endif %}
+
+
+<!-- Bold: Loyalty Points - Step 4.3 -->
+{% include 'bold-loyalties-product' %}
+<!-- // end bold code -->
+

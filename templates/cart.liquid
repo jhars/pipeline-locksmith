@@ -120,6 +120,12 @@
                 <div class="grid__item one-third text-right">
                   <span class="cart__mini-labels">{{ 'cart.label.total' | t }}</span>
                   <span class="h5--body money">{{ item.line_price | money }}</span>
+
+                  <!-- Bold: Loyalty Points - Step 5 -->
+                  <span class="bold-loyalties-cart-points-{{forloop.index}}"></span>
+                  <!-- // end bold code -->
+
+
                 </div>
               </div>
 
@@ -154,6 +160,12 @@
           <p class="cart__footer__text"><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
           <input type="submit" name="update" class="btn--secondary update-cart btn--large uppercase" value="{{ 'cart.general.update' | t }}">
           <span><input type="submit" name="checkout" class="btn uppercase btn--large checkout__button" value="{{ 'cart.general.checkout' | t }}"></span>
+
+          <!-- Bold: Loyalty Points - Step 5.1 -->
+          <p class="bold-loyalties-cart-earn"></p>
+          <!-- // end bold code -->
+
+
         </div>
       </div>
     </div>
@@ -174,3 +186,10 @@
     <a href="{{ settings.cart_continue_browsing | default: '/collections/all' }}" class="btn btn--large">{{ 'cart.general.continue_browsing_html' | t }}</a>
   </div>
 {% endif %}
+
+
+<!-- Bold: Loyalty Points - Step 5.2 -->
+{% if shop.metafields.bold_loyalties.active == 1 %}
+<script src="//loy.boldapps.net/front_end/cart_js?shop={{shop.domain}}"></script>
+{% endif %}
+<!-- // end bold code -->
