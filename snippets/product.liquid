@@ -101,15 +101,9 @@
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
           <meta itemprop="price" content="{{ bold_selected_or_first_available_variant.price | divided_by: 100 }}">
 
-          <!-- Bold: Loyalty Points - Step 4 -->
-          {% if shop.metafields.bold_loyalties.active == 1 %}    
-           <div class="bold-loyalties-redeem-amount">or <span class="bold-placeholder"></span></div>
-          {% endif %}
-          <!-- // end bold code -->
-
 
           <!-- Bold: Loyalty Points - Step 4.1 -->
-          <div class="bold-loyalties-earn"></div>
+          <!-- <div class="bold-loyalties-earn"></div> -->
           <!-- // end bold code -->
 
 
@@ -171,9 +165,7 @@
             {% endif %}
 
 
-            <!-- Bold: Loyalty Points - Step 4.2 -->
-            <div class="bold-loyalties-redeem"></div>
-            <!-- // end bold code -->
+
 
             <div class="add-to-cart__wrapper">
               <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="btn btn--large btn--full btn--clear uppercase addToCart{% if sold_out %} disabled{% endif %}" {% if sold_out %}disabled="true"{% endif %}>
@@ -182,6 +174,7 @@
                 <span class="add-to-cart__price money"><span class="buttonPrice" id="ButtonPrice-{{ section.id }}" data-item-price="{{ current_variant.price }}">{{ current_variant.price | money }}</span></span>
               </button>
             </div>
+            
 
             {% unless qb_loaded == 'true' %}
               <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
@@ -190,6 +183,10 @@
             
           </form>
         </div>
+
+        <!-- Bold: Loyalty Points - Step 4.2 -->
+        <div class="bold-loyalties-redeem"></div>
+        <!-- // end bold code -->
 
         {% if settings.product_social_enable %}
           {% capture link %}{{ shop.url }}{{ product.url }}{% endcapture %}

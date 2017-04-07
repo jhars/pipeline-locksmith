@@ -28,6 +28,11 @@
         <span class="price{% if on_sale %} on-sale{% endif %}">
           {% if bold_price_varies %}{{ 'products.general.from' | t }} {% endif %}
           <span class="money">{{ bold_price | money }}</span>
+
+          <!-- Bold: Loyalty Points - Step 4 -->
+
+          <!-- // end bold code -->
+
         </span>
         {% if sold_out %}
         <br /><em>{{ 'products.product.sold_out' | t }}</em>
